@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:8.0.17
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      TZ: Asiz/Seoul
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: "wine"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    restart: always
