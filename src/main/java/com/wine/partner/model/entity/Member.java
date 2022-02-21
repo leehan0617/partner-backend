@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Data
-public class User {
+public class Member {
     private int id;
     private String userId;
     private String password;

@@ -8,3 +8,8 @@ spring:
     username: root
     password: ''
 
+jwt:
+  header: Authorization
+  # springbootwinepartnerbackend to base64
+  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZA==
+  token-validity-in-seconds: 86400
