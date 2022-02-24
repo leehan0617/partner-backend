@@ -5,9 +5,9 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Member {
+public class SubscribeCertification {
     private int id;
-    private String userId;
-    private String password;
+    private int memberId;
+    private String customerInfo;
     private Date regDt;
 }
