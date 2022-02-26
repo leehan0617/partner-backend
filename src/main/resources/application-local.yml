@@ -10,6 +10,6 @@ spring:
 
 jwt:
   header: Authorization
-  # springbootwinepartnerbackend to base64
-  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZA==
+  # springbootwinepartnerbackendwithspringsecurity to base64
+  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZHdpdGhzcHJpbmdzZWN1cml0eQ==
   token-validity-in-seconds: 86400
