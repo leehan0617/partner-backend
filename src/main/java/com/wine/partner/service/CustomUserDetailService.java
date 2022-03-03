@@ -22,16 +22,12 @@ public class CustomUserDetailService implements UserDetailsService {
     }
 
     private User makeUser(String userId, Member member) {
-        if (!member.isActivate()) {
-            // TODO. throw 휴면 에러
-            throw new RuntimeException(String.format("휴면 ID 입니다. %s", userId));
-        }
-
-        List<GrantedAuthority> grantedAuthorityList = member.getAuthorities()
-                .stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getName()))
-                .collect(Collectors.toList());
-
-        return new User(member.getUserId(), member.getPassword(), grantedAuthorityList);
+//        List<GrantedAuthority> grantedAuthorityList = member.getAuthorities()
+//                .stream()
+//                .map(authority -> new SimpleGrantedAuthority(authority.getName()))
+//                .collect(Collectors.toList());
+//
+//        return new User(member.getUserId(), member.getPassword(), grantedAuthorityList);
+        return null;
     }
 }
