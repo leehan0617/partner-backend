@@ -35,9 +35,6 @@ public class Order {
     private Date regDt;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
-    @ManyToOne
     @JoinColumn(name = "settlement_id")
     private Settlement settlement;
     @OneToMany(mappedBy = "order")

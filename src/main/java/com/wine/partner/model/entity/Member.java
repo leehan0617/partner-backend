@@ -3,9 +3,7 @@ package com.wine.partner.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -21,12 +19,11 @@ public class Member {
     @Temporal(TemporalType.TIMESTAMP)
     private Date regDt;
 
-    @OneToMany(mappedBy = "member")
-    private Set<Authority> authorities;
-    @OneToOne(mappedBy = "member")
-    private SubscribeCertification subscribeCertification;
-    @OneToOne(mappedBy = "member")
-    private MemberDetail memberDetail;
-    @OneToMany(mappedBy = "member")
-    private List<Order> orderList;
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Authority> authorities = new ArrayList<>();
+
+    public void addAuthority(Authority authority) {
+        this.authorities.add(authority);
+        authority.setMember(this);
+    }
 }

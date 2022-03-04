@@ -11,6 +11,8 @@ public class MemberDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "member_id")
+    private int memberId;
     private String name;
     private String region;
     @Column(name = "phone_number")
@@ -33,7 +35,4 @@ public class MemberDetail {
     private String accountName;
     @Column(name = "account_number")
     private String accountNumber;
-    @OneToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
 }

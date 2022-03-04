@@ -1,0 +1,30 @@
+server:
+  port: 8617
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wine
+    username: root
+    password: ''
+    hikari:
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 5
+      maximum-pool-size: 10
+      pool-name: mysql-connection-pool
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl.auto: none
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: true
+    show-sql: true
+jwt:
+  header: Authorization
+  # springbootwinepartnerbackendwithspringsecurity to base64
+  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZHdpdGhzcHJpbmdzZWN1cml0eQ==
+  token-validity-in-seconds: 86400
