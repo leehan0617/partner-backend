@@ -30,17 +30,17 @@ public class MemberService {
         authority.setRole("ROLE_USER");
         authorityRepository.save(authority);
         member.addAuthority(authority);
+        memberDetail.setMemberId(member.getId());
         memberDetailRepository.save(memberDetail);
         return new MemberResponse(member, memberDetail, List.of(authority));
     }
 
-    public Member getMember(int id) {
+    public MemberResponse getMember(int id) {
         Optional<Member> maybeMember = memberRepository.findById(id);
-        maybeMember.ifPresent(member -> {
-            System.out.println(member.getPassword());
-            System.out.println(member.getAuthorities().size());
-        });
-
-        return null;
+        // TODO. make custom exception
+        Member member = maybeMember.orElseThrow();
+        MemberDetail memberDetail = memberDetailRepository.findByMemberId(id);
+        List<Authority> authorities = member.getAuthorities();
+        return new MemberResponse(member, memberDetail, authorities);
     }
 }

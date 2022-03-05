@@ -25,6 +25,6 @@ spring:
     show-sql: true
 jwt:
   header: Authorization
-  # springbootwinepartnerbackendwithspringsecurity to base64
-  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZHdpdGhzcHJpbmdzZWN1cml0eQ==
+  # springbootwinepartnerbackendwithspringsecurityandjpaandmysqlandetc to base64
+  secret: c3ByaW5nYm9vdHdpbmVwYXJ0bmVyYmFja2VuZHdpdGhzcHJpbmdzZWN1cml0eWFuZGpwYWFuZG15c3FsYW5kZXRj
   token-validity-in-seconds: 86400

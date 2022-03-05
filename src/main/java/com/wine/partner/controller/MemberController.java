@@ -1,16 +1,10 @@
 package com.wine.partner.controller;
 
-import com.wine.partner.model.entity.Member;
-import com.wine.partner.model.entity.MemberDetail;
-import com.wine.partner.model.request.MemberRequest;
 import com.wine.partner.model.response.MemberResponse;
 import com.wine.partner.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/member")
@@ -19,11 +13,9 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping
-    public ResponseEntity<MemberResponse> signUp(@RequestBody MemberRequest memberRequest) {
-        Member member = memberRequest.getMember();
-        MemberDetail memberDetail = memberRequest.getMemberDetail();
-        MemberResponse response = memberService.createMember(member, memberDetail);
-        return ResponseEntity.ok(response);
+    @GetMapping("/{id}")
+    public ResponseEntity<MemberResponse> getMember(@PathVariable int id) {
+        MemberResponse member = memberService.getMember(id);
+        return ResponseEntity.ok(member);
     }
 }
